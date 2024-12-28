@@ -1,0 +1,135 @@
+:root {
+    --bg-color: hsl(49 37% 94%);
+    --typewriterSpeed: 6s;
+    --typewriterCharacters: 24;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    background: #ffffff;
+  }
+  
+  .moving {
+    margin: auto;
+    font-family: "Source Sans Pro", sans-serif;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+    text-align: center;
+  }
+  
+  .name {
+    font-size: clamp(1rem, 3vw + 1rem, 4rem);
+    position: relative;
+    font-family: "Source Code Pro", monospace;
+    width: max-content;
+  }
+  
+  .name::before,
+  .name::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .name::before {
+    background: #fff;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards;
+  }
+  
+  .name::after {
+    width: 0.125em;
+    background: black;
+    animation: typewriter var(--typewriterSpeed) steps(var(--typewriterCharacters)) 1s forwards, blink 750ms steps(var(--typewriterCharacters)) infinite;
+  }
+  
+  .subtitle {
+    color: #000;
+    font-size: 2rem;
+    font-weight: normal;
+    opacity: 0;
+    transform: translateY(3rem);
+    animation: fadeInUp 2s ease calc(var(--typewriterSpeed) + 2s) forwards;
+  }
+  
+  @keyframes typewriter {
+    to {
+      left: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    to {
+      background: transparent;
+    }
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Fixing the incomplete @media block */
+  @media (max-width: 500px) {
+    .moving {
+      grid-template-columns: 2fr;
+      padding-left: 7px;
+    }
+    .name {
+      font-size: 22px;
+    }
+  }
+  
+  /* Make sure these blocks are properly defined and closed */
+  .box {
+    transform: translateX(400%);
+    transition: transform 0.4s ease;
+  }
+  
+  .show {
+    /* Add properties for the 'show' class if needed */
+  }
+  
+  .fade {
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 50% cover 50%;
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .pde{
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 20% cover 60%;   
+}
+@keyframes fade{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+.fde{
+    font-family: 'Poppins', sans-serif;
+    animation: fade linear;
+    animation-timeline: view();
+    animation-range: entry 15% cover 30%;   
+}
